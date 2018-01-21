@@ -29,7 +29,7 @@
 
 package cv.orion.filters {
 	
-	import cv.Orion;
+	import cv.orion.Orion;
 	import cv.orion.interfaces.IFilter;
 	import cv.orion.ParticleVO;
 	import cv.util.GeomUtil;
@@ -50,7 +50,7 @@ package cv.orion.filters {
 	 * via the config object. The second way is to add it to the effectFilters array itself.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.filters.TargetsGravityFilter;
 	 * 
 	 * var tgf:TargetsGravityFilter = new TargetsGravityFilter();
@@ -176,7 +176,7 @@ package cv.orion.filters {
 				p.target.y += pos0.y;
 				
 				// rotate velocities back
-				p.velocity = GeomUtil.rotateCoord(vel0.x, vel0.y, sin, cos, false);
+				p.velocity.fromPoint(GeomUtil.rotateCoord(vel0.x, vel0.y, sin, cos, false));
 			}
 		}
 		

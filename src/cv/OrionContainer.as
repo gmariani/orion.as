@@ -29,7 +29,12 @@
 
 package cv {
 	
+	import cv.orion.Orion;
+	import cv.orion.events.ParticleEvent;
+	import cv.orion.interfaces.IFilter;
 	import cv.orion.ParticleVO;
+	import flash.display.BlendMode;
+	import flash.geom.ColorTransform;
 	
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
@@ -50,13 +55,30 @@ package cv {
 	public class OrionContainer extends Orion {
 		
 		/**
+		 * Gets or sets the blend mode applied to particles when they are created. It is also
+		 * used when caching particles.
+		 */
+		public var cacheBlendMode:String = BlendMode.NORMAL;
+		
+		/**
+		 * Gets or sets whether bitmap caching is enabled on particles used within this emitter. 
+		 * If set to true, Flash Player or Adobe AIR caches an internal bitmap representation of 
+		 * the display object. This caching can increase performance for display objects that 
+		 * contain complex vector content.
+		 */
+		public var useCacheAsBitmap:Boolean = false;
+		
+		/**
 		 * This offset is used by the BitmapRenderer to fix render issues.
 		 * This is set automatically by assignParticles(), but is public to
 		 * allow for custom alignment if necessary.
 		 */
 		public var offSet:Point = new Point();
 		
+		/** @private */
 		private var _spriteTarget:DisplayObjectContainer;
+		/** @private */
+		protected const _clr:ColorTransform = new ColorTransform();
 		
 		/**
 		 * The constructor for OrionContainer is slightly different from Orion. You cannot specify an output class
@@ -78,48 +100,44 @@ package cv {
 		 * modifying the <code>settings</code> property directly allows.<br/><br/>If no config is passed, OrionContainer will automatically pause
 		 * to allow the settings object to be configured before starting.
 		 */
-		public function OrionContainer(target:DisplayObjectContainer, config:Object = null) {
-			super(Sprite, null, config);
+		public function OrionContainer(spriteTarget:DisplayObjectContainer, config:Object = null) {
+			_spriteTarget = spriteTarget;
+			super(config);
 			
-			var b:Rectangle = target.getBounds(target.parent);
+			// Create Particles
+			var numParticles:int = _spriteTarget.numChildren - 1;
+			_particles = createParticle(numParticles);
+			var currentParticle:ParticleVO = _particles;
+			var i:int = numParticles;
+			while (--i > -1) {
+				currentParticle = currentParticle.next = createParticle(i);
+			}
+			
+			var b:Rectangle = _spriteTarget.getBounds(_spriteTarget.parent);
 			offSet.x = b.x;
 			offSet.y = b.y;
 			_emitter.width = b.width;
 			_emitter.height = b.height;
 			_emitter.x = b.x;
 			_emitter.y = b.y;
-			_spriteTarget = target;
-			
-			if(config == null) {
-				paused = true;
-			} else {
-				applySettings();
-			}
 			
 			// Init canvas if reference to stage is available
-			if(target.stage) {
-				var pt:Point = target.globalToLocal(new Point());
-				canvas = new Rectangle(pt.x + offSet.x, pt.y + offSet.y, target.stage.stageWidth, target.stage.stageHeight);
+			if(_spriteTarget.stage) {
+				var pt:Point = _spriteTarget.globalToLocal(new Point());
+				canvas = new Rectangle(pt.x + offSet.x, pt.y + offSet.y, _spriteTarget.stage.stageWidth, _spriteTarget.stage.stageHeight);
 			}
 		}
 		
-		/**
-		 * The useFrameCaching property is disabled with this emitter.
-		 */
-		override public function get useFrameCaching():Boolean { return _useFrameCaching; }
-		/** @private **/
-		override public function set useFrameCaching(value:Boolean):void {
-			//
-		}
+		//--------------------------------------
+		//  Properties
+		//--------------------------------------
 		
 		/**
 		 * Gets the height of the emitter, setting is disabled.
 		 */
 		override public function get height():Number { return _emitter.height; }
 		/** @private **/
-		override public function set height(value:Number):void {
-			//
-		}
+		override public function set height(value:Number):void { }
 		
 		/**
          * The SpriteTarget property is OrionContainer's equivalent of SpriteClass.
@@ -128,18 +146,9 @@ package cv {
 		public function get spriteTarget():DisplayObjectContainer { return _spriteTarget; }
 		/** @private **/
 		public function set spriteTarget(value:DisplayObjectContainer):void {
-			removeAllParticles();
 			_spriteTarget = value;
-			applySettings();
-		}
-		
-		/**
-         * The spriteClass property is disabled with this emitter.
-		 */
-		override public function get spriteClass():Class { return Sprite; }
-		/** @private **/
-		override public function set spriteClass(value:Class):void {
-			//
+			removeAllParticles();
+			createAllParticles();
 		}
 		
 		/**
@@ -147,10 +156,7 @@ package cv {
 		 */
 		override public function get width():Number { return _emitter.width; }
 		/** @private **/
-		override public function set width(value:Number):void {
-			//
-			if (hasEventListener(Event.RESIZE)) dispatchEvent(_eventResize);
-		}
+		override public function set width(value:Number):void { }
 		
 		/**
 		 * Gets the x position of the emitter, setting is disabled.
@@ -172,25 +178,141 @@ package cv {
 		/** @private **/
 		override public function set y(value:Number):void {	}
 		
-		public function applySettings():void {
-			var i:int = DisplayObjectContainer(_spriteTarget).numChildren;
-			var d:DisplayObject, p:ParticleVO;
-			while (i--) {
-				d = DisplayObjectContainer(_spriteTarget).getChildAt(i);
-				p = new ParticleVO();
-				p.target = d;
-				p.velocity = new Point();
-				d.blendMode = cacheBlendMode;
-				d.cacheAsBitmap = useCacheAsBitmap;
-				resetParticle(p);
+		//--------------------------------------
+		//  Methods
+		//--------------------------------------
+		
+		override public function render(e:Event = null):void {
+			// Draw boxes for emitter and canvas
+			if (debug) {
+				this.graphics.clear();
+				this.graphics.lineStyle(1, 0x00FF00, 1, true);
+				this.graphics.drawRect(this.x, this.y, this.width, this.height);
+				this.graphics.moveTo(this.x, this.y);
+				this.graphics.lineTo(this.x, this.y);
+				this.graphics.lineTo(this.x + this.width, this.y + this.height);
+				this.graphics.moveTo(this.x + this.width, this.y);
+				this.graphics.lineTo(this.x + this.width, this.y);
+				this.graphics.lineTo(this.x, this.y + this.height);
+				if(canvas) {
+					this.graphics.lineStyle(1, 0xFF0000, 1, true);
+					this.graphics.drawRect(canvas.x, canvas.y, canvas.width, canvas.height);
+				}
 			}
+			
+			if (paused) return;
+			
+			var lifeSpan:uint = settings.lifeSpan;
+			var particle:ParticleVO = _particles;
+			var numEmit:int = _emitQueue.length - 1;
+			var numAdd:uint = output.getOutput(this);
+			var length:uint = 0;
+			var curTime:uint = Orion.time;
+			var i:uint;
+			var effectFiltersLength:uint = effectFilters.length;
+			var _effectFilters:Vector.<IFilter> = effectFilters;
+			var _edgeFilter:IFilter = edgeFilter;
+			var dispatch:Boolean = (_willTriggerFlags & 0x08) != 0;
+			var event:ParticleEvent = _eventUpdate;
+			
+			do {
+				if(particle.active) {
+					// Too old
+					if (lifeSpan > 0) {
+						if ((curTime - particle.timeStamp) > lifeSpan) {
+							removeParticle(particle);
+							continue;
+						}
+					}
+					
+					// Count particles
+					++length;
+					
+					if (!particle.paused) {
+						// Apply Filters
+						i = effectFiltersLength;
+						if(i > 0) {
+							while (--i > -1) {
+								_effectFilters[i].applyFilter(particle, this);
+							}
+						}
+						
+						// Position particle
+						if (particle.velocityX != 0) particle.target.x += particle.velocityX;
+						if (particle.velocityY != 0) particle.target.y += particle.velocityY;
+						if (particle.velocityZ != 0) particle.target.rotation += particle.velocityZ;
+						if (_edgeFilter) _edgeFilter.applyFilter(particle, this);
+					}
+					
+					// Dispatch update event
+					if (dispatch) {
+						event.particle = particle;
+						dispatchEvent(event);
+					}
+				} else if (numAdd > 0) {
+					// Add new
+					if(addParticle(particle)) --numAdd;
+				} else if (numEmit >= 0) {
+					// Can't emit new
+					_emitQueue.pop();
+					--numEmit;
+				}
+				
+				particle = particle.next;
+			} while (particle);	
+			
+			_numParticles = length;
+			
+			if ((_willTriggerFlags & 0x02) != 0)  dispatchEvent(_eventChange);
 		}
 		
-		/**
-		 * Stops Orion from creating new particles.
-		 * 
-		 * @param	point	Where to position the particle
-		 */
-		override public function emit(point:Point = null):void { }
+		//--------------------------------------
+		//  Private
+		//--------------------------------------
+		
+		// TODO: Fix
+		override protected function additionalInit(p:ParticleVO, pt:Point):void {
+			if(settings.velocityRotateMin != settings.velocityRotateMax) {
+				p.velocityZ = randomRange(settings.velocityRotateMin, settings.velocityRotateMax);
+			} else {
+				p.velocityZ = settings.velocityRotate;
+			}
+			
+			if(settings.colorMin != settings.colorMax) {
+				_clr.color = interpolateColor(settings.colorMin, settings.colorMax, Math.random());
+			} else if(!isNaN(settings.color)) {
+				_clr.color = settings.color;
+			}
+			
+			if(settings.alphaMin != settings.alphaMax) {
+				_clr.alphaMultiplier = randomRange(settings.alphaMin, settings.alphaMax);
+			} else {
+				_clr.alphaMultiplier = settings.alpha;
+			}
+			
+			var scale:Number = settings.scale;
+			if (settings.scaleMin != settings.scaleMax) {
+				scale = randomRange(settings.scaleMin, settings.scaleMax);
+			}
+			
+			var rotate:Number = settings.rotate;
+			if(settings.rotateMin != settings.rotateMax) {
+				rotate = randomRange(settings.rotateMin, settings.rotateMax);
+			}
+			
+			// Update position/color
+			_mtx.identity();
+			_mtx.createBox(scale, scale, rotate * DEG2RAD, pt.x, pt.y);
+			p.target.transform.colorTransform = _clr;
+			p.target.transform.matrix = _mtx;
+		}
+		
+		override protected function createParticle(idx:int = 0):ParticleVO {
+			var d:DisplayObject = _spriteTarget.getChildAt(idx);
+			d.blendMode = cacheBlendMode;
+			d.cacheAsBitmap = useCacheAsBitmap;
+			//resetParticle(p);
+			return new ParticleVO(d);
+		}
 	}
 }

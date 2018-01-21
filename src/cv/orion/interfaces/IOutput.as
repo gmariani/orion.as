@@ -29,7 +29,7 @@
 
 package cv.orion.interfaces {
 	
-	import cv.Orion;
+	import cv.orion.Orion;
 	
 	//--------------------------------------
     //  Class description
@@ -65,7 +65,7 @@ package cv.orion.interfaces {
 		 * 
 		 * @param	emitter The emitter to be used.
 		 */
-		function update(emitter:Orion):void;
+		function getOutput(emitter:Orion):uint;
 		
 		/**
 		 * Pauses the output class.

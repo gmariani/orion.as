@@ -29,7 +29,7 @@
 
 package cv.orion.output {
 	
-	import cv.Orion;
+	import cv.orion.Orion;
 	import cv.orion.interfaces.IOutput;
 	import flash.display.DisplayObject;
 	import flash.events.KeyboardEvent;
@@ -45,7 +45,7 @@ package cv.orion.output {
 	 * in the constructor. The second way is to add it via the output property.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.output.KeyDownOutput;
 	 * import flash.ui.Keyboard;
 	 * 

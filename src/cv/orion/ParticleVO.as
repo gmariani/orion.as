@@ -30,31 +30,25 @@
 package cv.orion {
 	
 	import flash.display.DisplayObject;
-	import flash.geom.ColorTransform;
-	import flash.geom.Point;
+	import flash.display.MovieClip;
 	
 	/**
 	 * ParticleVO is a value object class. It contains properties used by each
 	 * particle. Having a specific class with the explicit properties helps
 	 * the player manage memory usage.
 	 */
-	public class ParticleVO {
+	public final class ParticleVO {
 		
-		/**
-		 * Whether the particle is active or not.
-		 */
-		public var active:Boolean;
+		public function ParticleVO(target:DisplayObject = null) {
+			if (target) {
+				this.target = target;
+				isMovieClip = (target is MovieClip);
+			}
+		}
 		
-		/**
-		 * The angular (rotational) velocity of the particle
-		 */
-		public var angularVelocity:Number;
+		public var active:Boolean = false;
 		
-		/**
-		 * The current frame of the particle. This is saved becuase the particle
-		 * only has an image of one frame.
-		 */
-		public var currentFrame:int;
+		public var next:ParticleVO;
 		
 		/**
 		 * The mass of the particle
@@ -62,10 +56,39 @@ package cv.orion {
 		public var mass:Number;
 		
 		/**
-		 * If the particle is still active but just paused. Used
-		 * with StopEdgeFilter
+		 * If the particle should not be garbage collected or animated. Used with StopEdgeFilter
 		 */
 		public var paused:Boolean;
+		
+		/**
+		 * The time stamp on the particle, used to determine the lifespan of each particle running.
+		 */
+		public var timeStamp:int;
+		
+		/**
+		 * The velocity of the particle. [x, y, z]
+		 */
+		public var velocityX:Number = 0;
+		public var velocityY:Number = 0;
+		public var velocityZ:Number = 0;
+		
+		// For Pixels Only //
+		/////////////////////
+		
+		/**
+		 * Used when no target is available
+		 */
+		public var x:Number = 0;
+		public var y:Number = 0;
+		public var z:Number = 0;
+		
+		// For Display Objects Only //
+		//////////////////////////////
+		
+		/**
+		 * Saves time so we don't have to check again
+		 */
+		public var isMovieClip:Boolean = false;
 		
 		/**
 		 * The actual item on the display list being animated
@@ -73,14 +96,8 @@ package cv.orion {
 		public var target:DisplayObject;
 		
 		/**
-		 * The time stamp on the particle, used to determine the lifespan of each
-		 * particle running.
+		 * The current frame of the particle. This is saved becuase the particle only has an image of one frame.
 		 */
-		public var timeStamp:int;
-		
-		/**
-		 * The velocity of the particle
-		 */
-		public var velocity:Point;
+		public var currentFrame:int = 1;
 	}
 }

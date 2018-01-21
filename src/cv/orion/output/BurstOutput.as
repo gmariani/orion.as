@@ -29,7 +29,7 @@
 
 package cv.orion.output {
 	
-	import cv.Orion;
+	import cv.orion.Orion;
 	import cv.orion.interfaces.IOutput;
 	
 	//--------------------------------------
@@ -44,7 +44,7 @@ package cv.orion.output {
 	 * in the constructor. The second way is to add it via the output property.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.output.BurstOutput;
 	 * 
 	 * // First method
@@ -66,7 +66,7 @@ package cv.orion.output {
 		/**
 		 * Gets or sets the number of particles to be outputted.
 		 */
-		public var particles:uint;
+		public var numParticles:uint;
 		
 		/** @private */
 		protected var doOnce:Boolean = false;
@@ -76,11 +76,11 @@ package cv.orion.output {
 		/**
 		 * Controls the number of particles that are emitted.
 		 * 
-		 * @param	numOfParticles<uint> How manu particles to add at once.
+		 * @param	numParticles How manu particles to add at once.
 		 * @default 10
 		 */
-		public function BurstOutput(numOfParticles:uint = 10, continous:Boolean = false) {
-			this.particles = numOfParticles;
+		public function BurstOutput(numParticles:uint = 10, continous:Boolean = false) {
+			this.numParticles = numParticles;
 			this.continous = continous;
 		}
 		
@@ -118,13 +118,13 @@ package cv.orion.output {
 		}
 		
 		/** @copy cv.orion.interfaces.IOutput#update() **/
-		public function update(emitter:Orion):void {
+		public function getOutput(emitter:Orion):uint {
 			if (!doOnce || continous) {
-				if (_paused) return;
-				var i:int = particles; 
-				while (i--) emitter.emit();
+				if (_paused) return 0;
 				doOnce = true;
+				return numParticles; 
 			}
+			return 0;
 		}
 	}
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Orion</name>
+	<name>OrionSpeedProfile</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -12,14 +12,6 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>com.adobe.flexbuilder.project.flexnature</nature>
 		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>[source path] classes</name>
-			<type>2</type>
-			<location>H:/SVN/CourseVector/global/as3/classes</location>
-		</link>
-	</linkedResources>
 </projectDescription>

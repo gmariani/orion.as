@@ -31,7 +31,7 @@ package cv.orion.filters {
 	
 	import cv.orion.interfaces.IFilter;
 	import cv.orion.ParticleVO;
-	import cv.Orion;
+	import cv.orion.Orion;
 	import flash.geom.ColorTransform;
 	
 	//--------------------------------------
@@ -46,7 +46,7 @@ package cv.orion.filters {
 	 * via the config object. The second way is to add it to the effectFilters array itself.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.filters.ColorFilter;
 	 * 
 	 * // First method
@@ -84,7 +84,29 @@ package cv.orion.filters {
 			// Maintain alpha
 			_clr.alphaMultiplier = particle.target.alpha;
 			// Interpolate
-			particle.target.transform.colorTransform = Orion.interpolateTransform(particle.target.transform.colorTransform, _clr, (Orion.time - particle.timeStamp) / target.settings.lifeSpan);
+			particle.target.transform.colorTransform = ColorFilter.interpolateTransform(particle.target.transform.colorTransform, _clr, (Orion.time - particle.timeStamp) / target.settings.lifeSpan);
+		}
+		
+		/**
+		 * Finds a ColorTransform that's between the two ColorTransforms given.
+		 * 
+		 * @internal Utility function
+		 * 
+		 * @param	fromColor<ColorTransform> The first ColorTransform
+		 * @param	toColor<ColorTransform> The second ColorTransform
+		 * @param	progress<Number> The ratio between the two ColorTransforms you want returned.
+		 * @return The ColorTransform between the two ColorTransforms.
+		 */
+		public static function interpolateTransform(fromColor:ColorTransform, toColor:ColorTransform, progress:Number):ColorTransform {
+			var n:Number = progress, r:Number = 1 - n, sc:Object = fromColor, ec:Object = toColor;
+			return new ColorTransform(sc.redMultiplier * r + ec.redMultiplier * n,
+									    sc.greenMultiplier * r + ec.greenMultiplier * n,
+									    sc.blueMultiplier * r + ec.blueMultiplier * n,
+									    sc.alphaMultiplier * r + ec.alphaMultiplier * n,
+									    sc.redOffset * r + ec.redOffset * n,
+									    sc.greenOffset * r + ec.greenOffset * n,
+									    sc.blueOffset * r + ec.blueOffset * n,
+									    sc.alphaOffset * r + ec.alphaOffset * n);
 		}
 	}
 }

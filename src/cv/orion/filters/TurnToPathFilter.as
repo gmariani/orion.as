@@ -29,10 +29,10 @@
 
 package cv.orion.filters {
 	
-	import cv.Orion;
+	import cv.orion.Orion;
 	import cv.orion.interfaces.IFilter;
 	import cv.orion.ParticleVO;
-	import cv.util.GeomUtil;
+	import flash.geom.Point;
 	
 	//--------------------------------------
     //  Class description
@@ -46,7 +46,7 @@ package cv.orion.filters {
 	 * via the config object. The second way is to add it to the effectFilters array itself.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.filters.TurnToPathFilter;
 	 * 
 	 * // First method
@@ -59,9 +59,11 @@ package cv.orion.filters {
 	 */
 	public class TurnToPathFilter implements IFilter {
 		
+		protected static const _RAD2DEG:Number = 180 / Math.PI;
+		
 		/** @copy cv.orion.interfaces.IFilter#applyFilter() */
 		public function applyFilter(particle:ParticleVO, target:Orion):void {
-			particle.target.rotation = GeomUtil.turnToPath(particle.velocity);
+			particle.target.rotation = Math.atan2((0 - particle.velocityY), (0 - particle.velocityX)) * _RAD2DEG;
 		}
 	}
 }

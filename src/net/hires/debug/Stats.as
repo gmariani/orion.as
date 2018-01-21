@@ -55,6 +55,7 @@ package net.hires.debug
 
 		private var _timer : uint;
 		private var _fps : uint;
+		private var _currentFPS : uint;
 		private var _ms : uint;
 		private var _ms_prev : uint;
 		private var _mem : Number;
@@ -86,6 +87,10 @@ package net.hires.debug
 			}
 			
 			addEventListener(Event.ADDED_TO_STAGE, init, false, 0, true);
+		}
+		
+		public function getFPS():int {
+			return _currentFPS;
 		}
 
 		private function init(e : Event) : void
@@ -152,6 +157,7 @@ package net.hires.debug
 				_xml.mem = "MEM: " + _mem;
 				_xml.memMax = "MAX: " + _mem_max;
 				
+				_currentFPS = _fps;
 				_fps = 0;
 			}
 

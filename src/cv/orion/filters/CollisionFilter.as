@@ -29,7 +29,7 @@
 
 package cv.orion.filters {
 	
-	import cv.Orion;
+	import cv.orion.Orion;
 	import cv.orion.interfaces.IFilter;
 	import cv.orion.ParticleVO;
 	import cv.util.GeomUtil;
@@ -46,7 +46,7 @@ package cv.orion.filters {
 	 * via the config object. The second way is to add it to the effectFilters array itself.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.filters.CollisionFilter;
 	 * 
 	 * // First method
@@ -89,9 +89,6 @@ package cv.orion.filters {
 			if (particle.target.height > particle.target.width) pRadius = particle.target.height / 2;
 			while (i--) {
 				var p2:ParticleVO = target.particles[i];
-				
-				// If inactive, skip it
-				if (p2.active == false) continue;
 				
 				// If it's the same particle, skip it
 				if (p2 === particle) continue;
@@ -146,8 +143,8 @@ package cv.orion.filters {
 					particle.target.y += pos0.y;
 					
 					// rotate velocities back
-					particle.velocity = GeomUtil.rotateCoord(vel0.x, vel0.y, sin, cos, false);
-					p2.velocity = GeomUtil.rotateCoord(vel1.x, vel1.y, sin, cos, false);
+					particle.velocity.fromPoint(GeomUtil.rotateCoord(vel0.x, vel0.y, sin, cos, false));
+					p2.velocity.fromPoint(GeomUtil.rotateCoord(vel1.x, vel1.y, sin, cos, false));
 				}
 			}
 		}

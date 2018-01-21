@@ -30,7 +30,7 @@
 package cv.orion.output {
 	
 	import cv.orion.interfaces.IOutput;
-	import cv.Orion;
+	import cv.orion.Orion;
 	
 	//--------------------------------------
     //  Class description
@@ -43,7 +43,7 @@ package cv.orion.output {
 	 * in the constructor. The second way is to add it via the output property.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.output.TimedOutput;
 	 * 
 	 * // First method

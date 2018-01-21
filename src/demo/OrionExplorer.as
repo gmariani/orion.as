@@ -1,4 +1,4 @@
-import cv.Orion;
+import cv.orion.Orion;
 import cv.OrionBitmap;
 import cv.OrionContainer;
 import cv.OrionMouse;
@@ -305,7 +305,7 @@ private function update(fromApply:Boolean = false):void {
 			break;
 		default :
 			strClass = "Orion";
-			strCode = "import cv.Orion;<br>";
+			strCode = "import cv.orion.Orion;<br>";
 			newOrion = o;
 			vsOrion.selectedChild = blankConfig;
 			vsView.selectedChild = canOrion;

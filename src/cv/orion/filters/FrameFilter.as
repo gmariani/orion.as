@@ -29,7 +29,7 @@
 
 package cv.orion.filters {
 	
-	import cv.Orion;
+	import cv.orion.Orion;
 	import cv.orion.interfaces.IFilter;
 	import cv.orion.ParticleVO;
 	import flash.display.MovieClip;
@@ -47,7 +47,7 @@ package cv.orion.filters {
 	 * via the config object. The second way is to add it to the effectFilters array itself.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.filters.FrameFilter;
 	 * 
 	 * // First method

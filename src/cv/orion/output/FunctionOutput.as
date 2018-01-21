@@ -30,7 +30,7 @@
 package cv.orion.output {
 	
 	import cv.orion.interfaces.IOutput;
-	import cv.Orion;
+	import cv.orion.Orion;
 	
 	//--------------------------------------
     //  Class description
@@ -48,7 +48,7 @@ package cv.orion.output {
 	 * as a callback. In the following example, that is <code>pulse</code>.</p>
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.output.FunctionOutput;
 	 * 
 	 * // First method

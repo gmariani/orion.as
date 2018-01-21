@@ -30,7 +30,7 @@
 package cv.orion.output {
 	
 	import cv.orion.interfaces.IOutput;
-	import cv.Orion;
+	import cv.orion.Orion;
 	
 	//--------------------------------------
     //  Class description
@@ -43,7 +43,7 @@ package cv.orion.output {
 	 * in the constructor. The second way is to add it via the output property.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.output.SteadyOutput;
 	 * 
 	 * // First method
@@ -107,9 +107,9 @@ package cv.orion.output {
 		}
 		
 		/** @copy cv.orion.interfaces.IOutput#update() **/
-		public function update(emitter:Orion):void {
+		public function getOutput(emitter:Orion):uint {
 			updateTimes(emitter);
-			checkEmit(emitter);
+			return checkEmit(emitter);
 		}
 		
 		//--------------------------------------
@@ -139,19 +139,15 @@ package cv.orion.output {
 		 * 
 		 * @param	emitter
 		 */
-		protected function checkEmit(emitter:Orion):void {
-			if (particlesPerSecond == 0) return;
-			
+		protected function checkEmit(emitter:Orion):uint {
+			if (particlesPerSecond == 0) return 0;
 			var pT:Number = 1000 / particlesPerSecond;
 			if (dT >= pT) {
 				prevTime = Orion.time;
-				
-				if (_paused) return;
-				var times:uint = dT / pT;
-				while (times >= 1) {
-					emitter.emit();
-					times--;
-				}
+				if (_paused) return 0;
+				return dT / pT;
+			} else {
+				return 0;
 			}
 		}
 	}

@@ -29,7 +29,7 @@
 
 package cv.orion.interfaces {
 	
-	import cv.Orion;
+	import cv.orion.Orion;
 	import cv.orion.ParticleVO;
 	
 	//--------------------------------------

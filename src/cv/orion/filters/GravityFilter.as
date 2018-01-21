@@ -29,7 +29,7 @@
 
 package cv.orion.filters {
 	
-	import cv.Orion;
+	import cv.orion.Orion;
 	import cv.orion.interfaces.IFilter;
 	import cv.orion.ParticleVO;
 	
@@ -44,7 +44,7 @@ package cv.orion.filters {
 	 * via the config object. The second way is to add it to the effectFilters array itself.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.filters.GravityFilter;
 	 * 
 	 * // First method
@@ -83,7 +83,7 @@ package cv.orion.filters {
 		/** @copy cv.orion.interfaces.IFilter#applyFilter() */
 		public function applyFilter(particle:ParticleVO, target:Orion):void {
 			if (particle.mass == 0) return;
-			particle.velocity.y += value / particle.mass;
+			particle.velocityY += value / particle.mass;
 		}
 	}
 }

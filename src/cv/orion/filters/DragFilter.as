@@ -29,7 +29,7 @@
 
 package cv.orion.filters {
 	
-	import cv.Orion;
+	import cv.orion.Orion;
 	import cv.orion.interfaces.IFilter;
 	import cv.orion.ParticleVO;
 	//import cv.util.MathUtil;
@@ -45,7 +45,7 @@ package cv.orion.filters {
 	 * via the config object. The second way is to add it to the effectFilters array itself.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.filters.DragFilter;
 	 * 
 	 * // First method
@@ -108,9 +108,9 @@ package cv.orion.filters {
 			particle.velocity.y = Math.sin(angle) * speed;*/
 			
 			// Easy way
-			particle.velocity.x *= friction;
-			particle.velocity.y *= friction;
-			particle.angularVelocity *= friction;
+			particle.velocityX *= friction;
+			particle.velocityY *= friction;
+			particle.velocityZ *= friction;
 		}
 	}
 }

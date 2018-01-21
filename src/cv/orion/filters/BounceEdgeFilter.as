@@ -29,7 +29,7 @@
 
 package cv.orion.filters {
 	
-	import cv.Orion;
+	import cv.orion.Orion;
 	import cv.orion.interfaces.IFilter;
 	import cv.orion.ParticleVO;
 	import flash.display.DisplayObject;
@@ -47,7 +47,7 @@ package cv.orion.filters {
 	 * via the config object. The second way is to add it to the edgeFilter property itself.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.filters.BounceEdgeFilter;
 	 * 
 	 * // First method
@@ -87,18 +87,18 @@ package cv.orion.filters {
 			
 			if (r.right > target.canvas.right) {
 				d.x -= r.right - target.canvas.right;
-				particle.velocity.x *= value;
+				particle.velocityX *= value;
 			} else if (r.left < target.canvas.left) {
 				d.x += target.canvas.left - r.left;
-				particle.velocity.x *= value;
+				particle.velocityX *= value;
 			}
 			
 			if (r.bottom > target.canvas.bottom) {
 				d.y -= r.bottom - target.canvas.bottom;
-				particle.velocity.y *= value;
+				particle.velocityY *= value;
 			} else if (r.top < target.canvas.top) {
 				d.y += target.canvas.top - r.top;
-				particle.velocity.y *= value;
+				particle.velocityY *= value;
 			}
 		}
 	}

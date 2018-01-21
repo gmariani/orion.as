@@ -28,7 +28,7 @@
 **/
 package cv.orion.filters {
 	
-	import cv.Orion;
+	import cv.orion.Orion;
 	import cv.orion.interfaces.IFilter;
 	import cv.orion.ParticleVO;
 	import flash.display.DisplayObject;
@@ -45,7 +45,7 @@ package cv.orion.filters {
 	 * via the config object. The second way is to add it to the edgeFilter property itself.
 	 * 
 	 * <listing version="3.0">
-	 * import cv.Orion;
+	 * import cv.orion.Orion;
 	 * import cv.orion.filters.StopEdgeFilter;
 	 * 
 	 * // First method
