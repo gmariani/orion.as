@@ -1,0 +1,372 @@
+<customactions>
+	<actionspanel>
+		<folder name="Course Vector Orion" id="CourseVectorOrion" VERSION="9" index="true" tiptext="">
+			<folder name="cv" id="cv" sort="true" tiptext="Classes for package cv">
+				<folder name="Orion" id="[cv.Orion]" sort="true" index="true" asAncestors="Object" tiptext="Orion is a particle system on par with Pulse or FLINT.">
+					<folder name="Methods" id="Methods" VERSION="9" tiptext="Methods for class Orion">
+						<string object="[cv.Orion]" codehint="true" TEXT="Orion.addEmitter(%emitter:cv.orion.emitters.Emitter%):cv.orion.emitters.Emitter" VERSION="9" name="addEmitter" tiptext="Add an emitter to the particle system." />
+						<string object="[cv.Orion]" codehint="true" TEXT="Orion.removeAllParticles():void" VERSION="9" name="removeAllParticles" tiptext="Remove all particles from all emitters in the system." />
+						<string object="[cv.Orion]" codehint="true" TEXT="Orion.removeEmitter(%emitter:cv.orion.emitters.Emitter%):void" VERSION="9" name="removeEmitter" tiptext="Remove an emitter from the particle system." />
+						<string object="[cv.Orion]" codehint="true" TEXT="Orion.start():void" VERSION="9" name="start" tiptext="Starts up all emitters that are enabled." />
+						<string object="[cv.Orion]" codehint="true" TEXT="Orion.stop():void" VERSION="9" name="stop" tiptext="Stops all emitters and animation." />
+					</folder>
+					<folder name="Properties" id="Properties" tiptext="Properties for class Orion" VERSION="9">
+						<string object="[cv.Orion]" TEXT="Orion.particleCount" VERSION="9" name="particleCount" tiptext="Returns the total number of particles in the system." />
+						<string object="[cv.Orion]" TEXT="Orion.currentTime" VERSION="9" name="currentTime" tiptext="The current time used by Orion." />
+						<string object="[cv.Orion]" TEXT="Orion.previousTime" VERSION="9" name="previousTime" tiptext="The time from the last cycle." />
+					</folder>
+				</folder>
+			</folder>
+			<folder name="cv.orion" id="cv.orion" sort="true" tiptext="Classes for package cv.orion">
+				<folder name="Particle" id="[cv.orion.Particle]" sort="true" index="true" asAncestors="flash.events:EventDispatcher,Object" tiptext="The Particle class stores all the data pertaining to a given particle.">
+					<folder name="Methods" id="Methods" VERSION="9" tiptext="Methods for class Particle">
+						<string object="[cv.orion.Particle]" codehint="true" TEXT=".getColorTransform():flash.geom.ColorTransform" VERSION="9" name="getColorTransform" tiptext="Get a new color transform based on the set color." />
+					</folder>
+					<folder name="Properties" id="Properties" tiptext="Properties for class Particle" VERSION="9">
+						<string object="[cv.orion.Particle]" TEXT=".active" VERSION="9" name="active" tiptext="Whether the particle is active and in use or not." />
+						<string object="[cv.orion.Particle]" TEXT=".currentFrame" VERSION="9" name="currentFrame" tiptext="The current frame of the target moveclip." />
+						<string object="[cv.orion.Particle]" TEXT=".mass" VERSION="9" name="mass" tiptext="The mass of the particle. The higher the mass the harder it is for it to be moved." />
+						<string object="[cv.orion.Particle]" TEXT=".radius" VERSION="9" name="radius" tiptext="The radius of the particle, used for the collision filter." />
+						<string object="[cv.orion.Particle]" TEXT=".velocity" VERSION="9" name="velocity" tiptext="The total velocity of the particle." />
+						<string object="[cv.orion.Particle]" TEXT=".angularVelocity" VERSION="9" name="angularVelocity" tiptext="The spinning or angular velocity of the particle." />
+						<string object="[cv.orion.Particle]" TEXT=".timeStamp" VERSION="9" name="timeStamp" tiptext="A time stamp of the particle, used to determine the lifespan of the particle." />
+						<string object="[cv.orion.Particle]" TEXT=".target" VERSION="9" name="target" tiptext="The actual sprite used for display." />
+						<string object="[cv.orion.Particle]" TEXT=".alpha" VERSION="9" name="alpha" tiptext="The target's alpha." />
+						<string object="[cv.orion.Particle]" TEXT=".color" VERSION="9" name="color" tiptext="Gets or sets the color/tint of the particle." />
+						<string object="[cv.orion.Particle]" TEXT=".height" VERSION="9" name="height" tiptext="The target's height." />
+						<string object="[cv.orion.Particle]" TEXT=".rotation" VERSION="9" name="rotation" tiptext="The target's rotation." />
+						<string object="[cv.orion.Particle]" TEXT=".scaleX" VERSION="9" name="scaleX" tiptext="The target's X scale." />
+						<string object="[cv.orion.Particle]" TEXT=".scaleY" VERSION="9" name="scaleY" tiptext="The target's Y scale." />
+						<string object="[cv.orion.Particle]" TEXT=".width" VERSION="9" name="width" tiptext="The target's width." />
+						<string object="[cv.orion.Particle]" TEXT=".x" VERSION="9" name="x" tiptext="The target's X coordinate." />
+						<string object="[cv.orion.Particle]" TEXT=".y" VERSION="9" name="y" tiptext="The target's Y coordinate." />
+					</folder>
+				</folder>
+			</folder>
+			<folder name="cv.orion.output" id="cv.orion.output" sort="true" tiptext="Classes for package cv.orion.output">
+				<folder name="BurstOutput" id="[cv.orion.output.BurstOutput]" sort="true" index="true" asAncestors="Object" tiptext="The BurstOutput class adds the specified number of particles all at once.">
+					<folder name="Methods" id="Methods" VERSION="9" tiptext="Methods for class BurstOutput">
+						<string object="[cv.orion.output.BurstOutput]" codehint="true" TEXT=".reflect():Class" VERSION="9" name="reflect" tiptext="Returns the class name" />
+						<string object="[cv.orion.output.BurstOutput]" codehint="true" TEXT=".reset():void" VERSION="9" name="reset" tiptext="To have the particles emitted again, call this method" />
+						<string object="[cv.orion.output.BurstOutput]" codehint="true" TEXT=".update(%output:cv.orion.interfaces.IOutput,emitter:cv.orion.emitters.Emitter%):void" VERSION="9" name="update" tiptext="Controls the output of the particles of the emitter" />
+					</folder>
+					<folder name="Properties" id="Properties" tiptext="Properties for class BurstOutput" VERSION="9">
+						<string object="[cv.orion.output.BurstOutput]" TEXT=".particles" VERSION="9" name="particles" tiptext="The number of particles to be outputted" />
+					</folder>
+				</folder>
+				<folder name="FunctionOutput" id="[cv.orion.output.FunctionOutput]" sort="true" index="true" asAncestors="Object" tiptext="The FunctionOutput class emits particles based on the given function.">
+					<folder name="Methods" id="Methods" VERSION="9" tiptext="Methods for class FunctionOutput">
+						<string object="[cv.orion.output.FunctionOutput]" codehint="true" TEXT=".reflect():Class" VERSION="9" name="reflect" tiptext="Returns the class name" />
+						<string object="[cv.orion.output.FunctionOutput]" codehint="true" TEXT=".update(%output:cv.orion.interfaces.IOutput,emitter:cv.orion.emitters.Emitter%):void" VERSION="9" name="update" tiptext="Controls the output of the particles of the emitter" />
+					</folder>
+					<folder name="Properties" id="Properties" tiptext="Properties for class FunctionOutput" VERSION="9">
+						<string object="[cv.orion.output.FunctionOutput]" TEXT=".callback" VERSION="9" name="callback" tiptext="The function used to control the output" />
+					</folder>
+				</folder>
+				<folder name="KeyDownOutput" id="[cv.orion.output.KeyDownOutput]" sort="true" index="true" asAncestors="cv.orion.output:SteadyOutput,Object" tiptext="The KeyDownOutput class outputs particles if the specified key is pressed on the keyboard.">
+					<folder name="Methods" id="Methods" VERSION="9" tiptext="Methods for class KeyDownOutput">
+						<string object="[cv.orion.output.KeyDownOutput]" codehint="true" TEXT=".reflect():Class" VERSION="9" name="reflect" tiptext="Returns the class name" />
+						<string object="[cv.orion.output.KeyDownOutput]" codehint="true" TEXT=".update(%output:cv.orion.interfaces.IOutput,emitter:cv.orion.emitters.Emitter%):void" VERSION="9" name="update" tiptext="Controls the output of the particles of the emitter" />
+					</folder>
+					<folder name="Properties" id="Properties" tiptext="Properties for class KeyDownOutput" VERSION="9">
+						<string object="[cv.orion.output.KeyDownOutput]" TEXT=".target" VERSION="9" name="target" tiptext="The target to attach the keyboard listener to" />
+					</folder>
+				</folder>
+				<folder name="TimedOutput" id="[cv.orion.output.TimedOutput]" sort="true" index="true" asAncestors="cv.orion.output:SteadyOutput,Object" tiptext="The TimedOutput class outputs particles for a specified amount of time.">
+					<folder name="Methods" id="Methods" VERSION="9" tiptext="Methods for class TimedOutput">
+						<string object="[cv.orion.output.TimedOutput]" codehint="true" TEXT=".reflect():Class" VERSION="9" name="reflect" tiptext="Returns the class name" />
+						<string object="[cv.orion.output.TimedOutput]" codehint="true" TEXT=".reset():void" VERSION="9" name="reset" tiptext="To have the particles emitted again, call this method" />
+						<string object="[cv.orion.output.TimedOutput]" codehint="true" TEXT=".update(%output:cv.orion.interfaces.IOutput,emitter:cv.orion.emitters.Emitter%):void" VERSION="9" name="update" tiptext="Controls the output of the particles of the emitter" />
+					</folder>
+					<folder name="Properties" id="Properties" tiptext="Properties for class TimedOutput" VERSION="9">
+						<string object="[cv.orion.output.TimedOutput]" TEXT=".duration" VERSION="9" name="duration" tiptext="The duration that the particles are outputted" />
+					</folder>
+				</folder>
+				<folder name="SteadyOutput" id="[cv.orion.output.SteadyOutput]" sort="true" index="true" asAncestors="Object" tiptext="The SteadyOutput class outputs particles at a predictable rate.">
+					<folder name="Methods" id="Methods" VERSION="9" tiptext="Methods for class SteadyOutput">
+						<string object="[cv.orion.output.SteadyOutput]" codehint="true" TEXT=".reflect():Class" VERSION="9" name="reflect" tiptext="Returns the class type" />
+						<string object="[cv.orion.output.SteadyOutput]" codehint="true" TEXT=".update(%output:cv.orion.interfaces.IOutput,emitter:cv.orion.emitters.Emitter%):void" VERSION="9" name="update" tiptext="Controls the output of the particles of the emitter" />
+					</folder>
+				</folder>
+			</folder>
+			<folder name="cv.orion.renderers" id="cv.orion.renderers" sort="true" tiptext="Classes for package cv.orion.renderers">
+				<folder name="BitmapRenderer" id="[cv.orion.renderers.BitmapRenderer]" sort="true" index="true" asAncestors="Object" tiptext="The BitmapRenderer actually draws the particles and all the animations as a single bitmap.">
+					<folder name="Methods" id="Methods" VERSION="9" tiptext="Methods for class BitmapRenderer">
+						<string object="[cv.orion.renderers.BitmapRenderer]" codehint="true" TEXT=".addFilter(%filter:flash.filters.BitmapFilter, isPost:Boolean%):BitmapFilter" VERSION="9" name="addFilter" tiptext="Allows you to add a bitmap filter to the renderer" />
+						<string object="[cv.orion.renderers.BitmapRenderer]" codehint="true" TEXT=".addParticle(%particle:cv.orion.Particle, target:cv.orion.emitters.Emitter%):void" VERSION="9" name="addParticle" tiptext="Adds the particle to the renderer" />
+						<string object="[cv.orion.renderers.BitmapRenderer]" codehint="true" TEXT=".clear():void" VERSION="9" name="clear" tiptext="Clears the renderer" />
+						<string object="[cv.orion.renderers.BitmapRenderer]" codehint="true" TEXT=".getFilters():Array" VERSION="9" name="getFilters" tiptext="Gets all the filters that are being added to the bitmap at each render" />
+						<string object="[cv.orion.renderers.BitmapRenderer]" codehint="true" TEXT=".getPalletteMap():Array" VERSION="9" name="getPalletteMap" tiptext="Gets the palletemap if it was set" />
+						<string object="[cv.orion.renderers.BitmapRenderer]" codehint="true" TEXT=".getPostFilters():Array" VERSION="9" name="getPostFilters" tiptext="Gets all the post filters that are being added to the bitmap at each render" />
+						<string object="[cv.orion.renderers.BitmapRenderer]" codehint="true" TEXT=".removeFilter(%filter:flash.filters.BitmapFilter%):void" VERSION="9" name="removeFilter" tiptext="Removes a filter from the renderer" />
+						<string object="[cv.orion.renderers.BitmapRenderer]" codehint="true" TEXT=".removeParticle(%particle:cv.orion.Particle%):void" VERSION="9" name="removeParticle" tiptext="Removes the particle from the renderer" />
+						<string object="[cv.orion.renderers.BitmapRenderer]" codehint="true" TEXT=".render(%target:cv.orion.emitters.Emitter%):void" VERSION="9" name="render" tiptext="Calls the renderer to draw the particles" />
+						<string object="[cv.orion.renderers.BitmapRenderer]" codehint="true" TEXT=".setPalletteMap(%red:Array, green:Array, blue:Array, alpha:Array%):void" VERSION="9" name="setPalletteMap" tiptext="Remaps the color channel values in an image" />
+						<string object="[cv.orion.renderers.BitmapRenderer]" codehint="true" TEXT=".update(%target:flash.display.DisplayObjectContainer, canvas:flash.geom.Rectangle%):void" VERSION="9" name="update" tiptext="Redraws the particles according to the render type" />
+					</folder>
+					<folder name="Properties" id="Properties" tiptext="Properties for class BitmapRenderer" VERSION="9">
+						<string object="[cv.orion.renderers.BitmapRenderer]" TEXT=".pixelSnapping" VERSION="9" name="pixelSnapping" tiptext="Controls whether or not the Bitmap object is snapped to the nearest pixel" />
+						<string object="[cv.orion.renderers.BitmapRenderer]" TEXT=".smoothing" VERSION="9" name="smoothing" tiptext="Controls whether or not the bitmap is smoothed when scaled" />
+					</folder>
+				</folder>
+				<folder name="PixelRenderer" id="[cv.orion.renderers.PixelRenderer]" sort="true" index="true" asAncestors="cv.orion.renderers:BitmapRenderer,Object" tiptext="The PixelRenderer class acts exactly like the BitmapRenderer class except it uses pixels for the particles.">
+				</folder>
+				<folder name="DisplayObjectRenderer" id="[cv.orion.renderers.DisplayObjectRenderer]" sort="true" index="true" asAncestors="Object" tiptext="The DisplayObjectRenderer handles the particles how normal animation is handled in flash.">
+					<folder name="Methods" id="Methods" VERSION="9" tiptext="Methods for class DisplayObjectRenderer">
+						<string object="[cv.orion.renderers.DisplayObjectRenderer]" codehint="true" TEXT=".addParticle(%particle:cv.orion.Particle, target:cv.orion.emitters.Emitter%):void" VERSION="9" name="addParticle" tiptext="Adds the particle to the renderer" />
+						<string object="[cv.orion.renderers.DisplayObjectRenderer]" codehint="true" TEXT=".clear():void" VERSION="9" name="clear" tiptext="Clears the renderer" />
+						<string object="[cv.orion.renderers.DisplayObjectRenderer]" codehint="true" TEXT=".removeParticle(%particle:cv.orion.Particle%):void" VERSION="9" name="removeParticle" tiptext="Removes the particle from the renderer" />
+						<string object="[cv.orion.renderers.DisplayObjectRenderer]" codehint="true" TEXT=".render(%target:cv.orion.emitters.Emitter%):void" VERSION="9" name="render" tiptext="Calls the renderer to draw the particles" />
+						<string object="[cv.orion.renderers.DisplayObjectRenderer]" codehint="true" TEXT=".update(%target:flash.display.DisplayObjectContainer, canvas:flash.geom.Rectangle%):void" VERSION="9" name="update" tiptext="Redraws the particles according to the render type" />
+					</folder>
+				</folder>
+			</folder>
+			<folder name="cv.orion.events" id="cv.orion.events" sort="true" tiptext="Classes for package cv.orion.events">
+				<folder name="ParticleEvent" id="[cv.orion.events.ParticleEvent]" sort="true" index="true" asAncestors="flash.events:Event,Object" tiptext="Orion ParticleEvent" >
+					<folder name="Methods" id="Methods" tiptext="Methods for class ParticleEvent" >
+						<string name="ParticleEvent" object="[cv.orion.events.ParticleEvent]" text="new ParticleEvent(%type:String,bubbles:Boolean,cancelable:Boolean,position:flash.geom.Point,scale:Number,velocity:flash.geom.Point%)" constructor="true" tiptext="The constructor function for the ParticleEvent class." version="9" />
+						<string name="clone" object="[cv.orion.events.ParticleEvent]" text=".clone():flash.events:Event" tiptext="Duplicates an instance of an Event subclass." version="9" />
+					</folder>
+					<folder name="Properties" id="Properties" tiptext="Properties for class ParticleEvent" >
+						<string name="UPDATE" object="[cv.orion.events.ParticleEvent]" text="ParticleEvent.UPDATE" constant="true" tiptext="The ParticleEvent.UPDATE constant defines the value of the type property of an update event object." version="9" />
+						<string name="DESTROY" object="[cv.orion.events.ParticleEvent]" text="ParticleEvent.DESTROY" constant="true" tiptext="The ParticleEvent.DESTROY constant defines the value of the type property of an destroy event object." version="9" />
+						<string name="position" object="[cv.orion.events.ParticleEvent]" text=".position" tiptext="The current position of the particle." version="9" />
+						<string name="scale" object="[cv.orion.events.ParticleEvent]" text=".scale" tiptext="The current scale of the particle." version="9" />
+						<string name="velocity" object="[cv.orion.events.ParticleEvent]" text=".velocity" tiptext="The current velocity of the particle." version="9" />
+					</folder>
+				</folder>
+			</folder>
+			<folder name="cv.orion.edgefilters" id="cv.orion.edgefilters" sort="true" tiptext="Classes for package cv.orion.edgefilters">
+				<folder name="WrapEdgeFilter" id="[cv.orion.edgefilters.WrapEdgeFilter]" sort="true" index="true" asAncestors="Object" tiptext="The WrapEdgeFilter makes a particle 'wrap', and appear at the opposite edge once it's hit the edge of the canvas." >
+					<folder name="Methods" id="Methods" tiptext="Methods for class WrapEdgeFilter" >
+						<string name="applyFilter" object="[cv.orion.edgefilters.WrapEdgeFilter]" text=".applyFilter(%particle:cv.orion.Particle,target:flash.display.DisplayObjectContainer,canvas:flash.geom.Rectangle%):void" tiptext="Applies the specified filter to a particular particle." version="9" />
+					</folder>
+				</folder>
+				<folder name="StopEdgeFilter" id="[cv.orion.edgefilters.StopEdgeFilter]" sort="true" index="true" asAncestors="Object" tiptext="The StopEdgeFilter makes a particle stop all motion once it's hit the edge of the canvas." >
+					<folder name="Methods" id="Methods" tiptext="Methods for class StopEdgeFilter" >
+						<string name="applyFilter" object="[cv.orion.edgefilters.StopEdgeFilter]" text=".applyFilter(%particle:cv.orion.Particle,target:flash.display.DisplayObjectContainer,canvas:flash.geom.Rectangle%):void" tiptext="Applies the specified filter to a particular particle." version="9" />
+					</folder>
+				</folder>
+				<folder name="BounceEdgeFilter" id="[cv.orion.edgefilters.BounceEdgeFilter]" sort="true" index="true" asAncestors="Object" tiptext="The BounceEdgeFilter forces a given particle to rebound off any edges of the canvas." >
+					<folder name="Methods" id="Methods" tiptext="Methods for class BounceEdgeFilter" >
+						<string name="applyFilter" object="[cv.orion.edgefilters.BounceEdgeFilter]" text=".applyFilter(%particle:cv.orion.Particle,target:flash.display.DisplayObjectContainer,canvas:flash.geom.Rectangle%):void" tiptext="Applies the specified filter to a particular particle." version="9" />
+					</folder>
+				</folder>
+			</folder>
+			<folder name="cv.orion.emitters" id="cv.orion.emitters" sort="true" tiptext="Classes for package cv.orion.emitters">
+				<folder name="Emitter" id="[cv.orion.emitters.Emitter]" sort="true" index="true" asAncestors="flash.display:Sprite,flash.display:DisplayObjectContainer,flash.display:InteractiveObject,flash.display:DisplayObject,flash.events:EventDispatcher,Object" tiptext="The Emitter class is the hub of particle system.">
+					<folder name="Methods" id="Methods" VERSION="9" tiptext="Methods for class Emitter">
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".addFilter(%filter:cv.orion.interfaces.IFilter%);\n" VERSION="9" name="addFilter" tiptext="Adds a filter to apply it's settings to the particles of the emitter" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".emit(%point:flash.geom.Point%):void" VERSION="9" name="emit" tiptext="Causes the emitter to add particles" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".getCanvas():flash.geom.Rectangle" VERSION="9" name="getCanvas" tiptext="Gets the canvas used internally by the Emitter" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".getEdgeFilter();\n" VERSION="9" name="getEdgeFilter" tiptext="Gets the current edge fitler" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".getFilters():Array" VERSION="9" name="getFilters" tiptext="Gets the filters being applied by the emitter" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".onUpdate(%emitter:cv.orion.emitters.Emitter%):void" VERSION="9" name="onUpdate" tiptext="Sets an update emitter" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".onDestroy(%emitter:cv.orion.emitters.Emitter%):void" VERSION="9" name="onDestroy" tiptext="Sets an destroy emitter" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".getParticles():Array" VERSION="9" name="getParticles" tiptext="Gets all the particles in the emitter's system currently" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".removeAllParticles():void" VERSION="9" name="removeAllParticles" tiptext="Removes all particles from the emitter" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".removeFilter(%filter:cv.orion.interfaces.IFilter%):void" VERSION="9" name="removeFilter" tiptext="Removes a filter from the emitter" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".renderAll():void" VERSION="9" name="renderAll" tiptext="Updates all the particles and positions" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".setEdgeFilter(%filter:cv.orion.interfaces.IFilter%):void" VERSION="9" name="setEdgeFilter" tiptext="Sets the edge filter used by the emitter" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".setRenderer(%renderer:cv.orion.interfaces.IRenderer%):void" VERSION="9" name="setRenderer" tiptext="Sets the renderer used by the emitter" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".setSize(%width:Number,height:Number%):void" VERSION="9" name="setSize" tiptext="Sets the dimensions of the Emitter" />
+						<string object="[cv.orion.emitters.Emitter]" codehint="true" TEXT=".updateCanvas():void" VERSION="9" name="updateCanvas" tiptext="Causes the canvas dimensions to be updated" />
+					</folder>
+					<folder name="Properties" id="Properties" tiptext="Properties for class Emitter" VERSION="9">
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".lifeSpan" VERSION="9" name="lifeSpan" tiptext="The lifespan of the particle in milliseconds" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".mass" VERSION="9" name="mass" tiptext="The mass of a particle" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".opacity" VERSION="9" name="opacity" tiptext="The initial alpha of a particle" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".opacityMin" VERSION="9" name="opacityMin" tiptext="The minimum alpha in a range for the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".opacityMax" VERSION="9" name="opacityMax" tiptext="The maximum alpha in a range for the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".velocityX" VERSION="9" name="velocityX" tiptext="The initial X velocity of a particle" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".velocityXMin" VERSION="9" name="velocityXMin" tiptext="The minimum X velocity in a range to move the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".velocityXMax" VERSION="9" name="velocityXMax" tiptext="The maximum X velocity in a range to move the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".velocityY" VERSION="9" name="velocityY" tiptext="The initial Y velocity of a particle" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".velocityYMin" VERSION="9" name="velocityYMin" tiptext="The minimum Y velocity in a range to move the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".velocityYMax" VERSION="9" name="velocityYMax" tiptext="The maximum Y velocity in a range to move the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".velocityRotate" VERSION="9" name="velocityRotate" tiptext="The initial spinning velocity of a particle" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".velocityRotateMin" VERSION="9" name="velocityRotateMin" tiptext="The minimum spin in a range to spin the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".velocityRotateMax" VERSION="9" name="velocityRotateMax" tiptext="The maximum spin in a range to spin the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".velocityAngle" VERSION="9" name="velocityAngle" tiptext="The direction the particle will move in" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".velocityAngleMin" VERSION="9" name="velocityAngleMin" tiptext="The minimum angle in a range to move in a random direction" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".velocityAngleMax" VERSION="9" name="velocityAngleMax" tiptext="The maximum angle in a range to move in a random direction" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".rotate" VERSION="9" name="rotate" tiptext="The initial rotation of a particle" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".rotateMin" VERSION="9" name="rotateMin" tiptext="The minimum rotation in a range to rotate the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".rotateMax" VERSION="9" name="rotateMax" tiptext="The maximum rotation in a range to rotate the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".scale" VERSION="9" name="scale" tiptext="The initial scale of a particle" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".scaleMin" VERSION="9" name="scaleMin" tiptext="The minimum scale in a range to scale the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".scaleMax" VERSION="9" name="scaleMax" tiptext="The maximum scale in a range to scale the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".color" VERSION="9" name="color" tiptext="The initial tint of a particle" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".colorMin" VERSION="9" name="colorMin" tiptext="The minimum color in a range to tint the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".colorMax" VERSION="9" name="colorMax" tiptext="The maximum color in a range to tint the particle randomly initially" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".selectRandomFrame" VERSION="9" name="selectRandomFrame" tiptext="If a frame is randomly selected initially" />
+						
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".enabled" VERSION="9" name="enabled" tiptext="Whether the emitter is active and running." />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".numberOfParticles" VERSION="9" name="numberOfParticles" tiptext="How many particles are emitted during each emit() call" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".output" VERSION="9" name="output" tiptext="The output class used" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".pixelSnapping" VERSION="9" name="pixelSnapping" tiptext="Whether PixelSnapping is active when using frame caching" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".renderer" VERSION="9" name="renderer" tiptext="The renderer used" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".smoothing" VERSION="9" name="smoothing" tiptext="Whether bitmap smoothing is active when using frame caching" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".useCacheAsBitmap" VERSION="9" name="useCacheAsBitmap" tiptext="Whether bitmap caching is enabled on particles" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".useFrameCaching" VERSION="9" name="useFrameCaching" tiptext="Whether frame caching is enabled" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".particleBlendMode" VERSION="9" name="particleBlendMode" tiptext="The blend mode applied to particles when they are created" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".cacheTarget" VERSION="9" name="cacheTarget" tiptext="The frame cache movieclip" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".container" VERSION="9" name="container" tiptext="The containining display object that will hold the particles" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".destroyEmitter" VERSION="9" name="destroyEmitter" tiptext="A reference to the emitter set for onDestroy" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".frameCache" VERSION="9" name="frameCache" tiptext="The storage location for frames that are cached" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".height" VERSION="9" name="height" tiptext="The height of the emitter, setting is disabled." />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".particleCount" VERSION="9" name="particleCount" tiptext="The current particle count for this emitter" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".spriteClass" VERSION="9" name="spriteClass" tiptext="The specific library linkId (class reference)" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".updateEmitter" VERSION="9" name="updateEmitter" tiptext="A reference to the emitter set for onUpdate" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".width" VERSION="9" name="width" tiptext="The width of the emitter, setting is disabled" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".x" VERSION="9" name="x" tiptext="The x coordinate of the interal point used" />
+						<string object="[cv.orion.emitters.Emitter]" TEXT=".y" VERSION="9" name="y" tiptext="The y coordinate of the interal point used" />
+					</folder>
+				</folder>
+				<folder name="MouseEmitter" id="[cv.orion.emitters.MouseEmitter]" sort="true" index="true" asAncestors="cv.orion.emitters:Emitter,flash.display:Sprite,flash.display:DisplayObjectContainer,flash.display:InteractiveObject,flash.display:DisplayObject,flash.events:EventDispatcher,Object" tiptext="The MouseEmitter class emits particles from the mouse.">
+					<folder name="Properties" id="Properties" tiptext="Properties for class MouseEmitter" VERSION="9">
+						<string object="[cv.orion.emitters.MouseEmitter]" TEXT=".onlyOnMouseMove" VERSION="9" name="onlyOnMouseMove" tiptext="Only emit particles when the user moves their mouse" />
+					</folder>
+				</folder>
+				<folder name="RectangleEmitter" id="[cv.orion.emitters.RectangleEmitter]" sort="true" index="true" asAncestors="cv.orion.emitters:Emitter,flash.display:Sprite,flash.display:DisplayObjectContainer,flash.display:InteractiveObject,flash.display:DisplayObject,flash.events:EventDispatcher,Object" tiptext="The RectangleEmitter class emits particles within a set bounding box.">
+					<folder name="Properties" id="Properties" tiptext="Properties for class RectangleEmitter" VERSION="9">
+						<string object="[cv.orion.emitters.RectangleEmitter]" TEXT=".isContained" VERSION="9" name="isContained" tiptext="Whether the particles generated within the box have stay inside the box or not" />
+					</folder>
+				</folder>
+				<folder name="DisplayObjectEmitter" id="[cv.orion.emitters.DisplayObjectEmitter]" sort="true" index="true" asAncestors="cv.orion.emitters:Emitter,flash.display:Sprite,flash.display:DisplayObjectContainer,flash.display:InteractiveObject,flash.display:DisplayObject,flash.events:EventDispatcher,Object" tiptext="The RectangleEmitter class emits particles within a set bounding box.">
+					<folder name="Methods" id="Methods" VERSION="9" tiptext="Methods for class DisplayObjectEmitter">
+						<string object="[cv.orion.emitters.DisplayObjectEmitter]" TEXT=".assignParticles(%target:flash.display.DisplayObject,assignChildren:Boolean %):void" VERSION="9" name="assignParticles" tiptext="Assigns a particle or the container of the particles to the emitter" />
+					</folder>
+					<folder name="Properties" id="Properties" tiptext="Properties for class DisplayObjectEmitter" VERSION="9">
+						<string object="[cv.orion.emitters.DisplayObjectEmitter]" TEXT=".offSet" VERSION="9" name="offSet" tiptext="This offset is used by the BitmapRenderer to fix render issues" />
+					</folder>
+				</folder>
+				<folder name="BitmapEmitter" id="[cv.orion.emitters.BitmapEmitter]" sort="true" index="true" asAncestors="cv.orion.emitters:Emitter,flash.display:Sprite,flash.display:DisplayObjectContainer,flash.display:InteractiveObject,flash.display:DisplayObject,flash.events:EventDispatcher,Object" tiptext="The BitmapEmitter class emits particles where ever the specified color is on the parent of the emitter.">
+					<folder name="Methods" id="Methods" VERSION="9" tiptext="Methods for class BitmapEmitter">
+						<string object="[cv.orion.emitters.BitmapEmitter]" TEXT=".updateBitmap():void" VERSION="9" name="updateBitmap" tiptext="Updates the snapshot/bitmapdata of the target display object if it has changed" />
+					</folder>
+					<folder name="Properties" id="Properties" tiptext="Properties for class BitmapEmitter" VERSION="9">
+						<string object="[cv.orion.emitters.BitmapEmitter]" TEXT=".isRandom" VERSION="9" name="isRandom" tiptext="If true, it ignores speedX and speedY and randomly chooses a point within the emitter" />
+						<string object="[cv.orion.emitters.BitmapEmitter]" TEXT=".speedX" VERSION="9" name="speedX" tiptext="The X speed that the emitter scans the bitmap and adds particles" />
+						<string object="[cv.orion.emitters.BitmapEmitter]" TEXT=".speedY" VERSION="9" name="speedY" tiptext="The Y speed that the emitter scans the bitmap and adds particles" />
+						<string object="[cv.orion.emitters.BitmapEmitter]" TEXT=".targetColor" VERSION="9" name="targetColor" tiptext="The target color to attach particles to within the bitmap" />
+						<string object="[cv.orion.emitters.BitmapEmitter]" TEXT=".target" VERSION="9" name="target" tiptext="The display object to use as a reference for the bitmapdata" />
+					</folder>
+				</folder>
+			</folder>
+		</folder>
+	</actionspanel>
+	
+	<colorsyntax>
+		<identifier text="Orion.VERSION" />
+		<identifier text="Orion.particleCount" />
+		<identifier text="Orion.currentTime" />
+		<identifier text="Orion.previousTime" />
+		<identifier text="Orion.addEmitter" />
+		<identifier text="Orion.removeAllParticles" />
+		<identifier text="Orion.removeEmitter" />
+		<identifier text="Orion.start" />
+		<identifier text="Orion.stop" />
+		<identifier text=".duration" />
+		<identifier text=".reflect" />
+		<identifier text=".reset" />
+		<identifier text=".update" />
+		<identifier text=".callback" />
+		<identifier text=".particles" />
+		<identifier text=".addFilter" />
+		<identifier text=".emit" />
+		<identifier text=".getCanvas" />
+		<identifier text=".getEdgeFilter" />
+		<identifier text=".getFilters" />
+		<identifier text=".onUpdate" />
+		<identifier text=".onDestroy" />
+		<identifier text=".getParticles" />
+		<identifier text=".removeAllParticles" />
+		<identifier text=".removeFilter" />
+		<identifier text=".renderAll" />
+		<identifier text=".setEdgeFilter" />
+		<identifier text=".setRenderer" />
+		<identifier text=".setSize" />
+		<identifier text=".updateCanvas" />
+		<identifier text=".lifeSpan" />
+		<identifier text=".mass" />
+		<identifier text=".opacity" />
+		<identifier text=".opacityMin" />
+		<identifier text=".opacityMax" />
+		<identifier text=".velocityX" />
+		<identifier text=".velocityXMin" />
+		<identifier text=".velocityXMax" />
+		<identifier text=".velocityY" />
+		<identifier text=".velocityYMin" />
+		<identifier text=".velocityYMax" />
+		<identifier text=".velocityRotate" />
+		<identifier text=".velocityRotateMin" />
+		<identifier text=".velocityRotateMax" />
+		<identifier text=".velocityAngle" />
+		<identifier text=".velocityAngleMin" />
+		<identifier text=".velocityAngleMax" />
+		<identifier text=".rotate" />
+		<identifier text=".rotateMin" />
+		<identifier text=".rotateMax" />
+		<identifier text=".scale" />
+		<identifier text=".scaleMin" />
+		<identifier text=".scaleMax" />
+		<identifier text=".color" />
+		<identifier text=".colorMin" />
+		<identifier text=".colorMax" />
+		<identifier text=".selectRandomFrame" />
+		<identifier text=".enabled" />
+		<identifier text=".numberOfParticles" />
+		<identifier text=".output" />
+		<identifier text=".pixelSnapping" />
+		<identifier text=".renderer" />
+		<identifier text=".smoothing" />
+		<identifier text=".useCacheAsBitmap" />
+		<identifier text=".useFrameCaching" />
+		<identifier text=".particleBlendMode" />
+		<identifier text=".cacheTarget" />
+		<identifier text=".container" />
+		<identifier text=".destroyEmitter" />
+		<identifier text=".frameCache" />
+		<identifier text=".height" />
+		<identifier text=".particleCount" />
+		<identifier text=".spriteClass" />
+		<identifier text=".updateEmitter" />
+		<identifier text=".width" />
+		<identifier text=".x" />
+		<identifier text=".y" />
+		<identifier text=".applyFilter" />
+		<identifier text=".apply" />
+		<identifier text=".onlyOnMouseMove" />
+		<identifier text=".isContained" />
+		<identifier text=".updateBitmap" />
+		<identifier text=".isRandom" />
+		<identifier text=".speedX" />
+		<identifier text=".speedY" />
+		<identifier text=".targetColor" />
+		<identifier text=".target" />
+		<identifier text=".offSet" />
+		<identifier text=".assignParticles" />
+		<identifier text="ParticleEvent.UPDATE" />
+		<identifier text="ParticleEvent.DESTROY" />
+		<identifier text=".position" />
+		<identifier text=".scale" />
+		<identifier text=".velocity" />
+	</colorsyntax>
+	
+	<codehints>
+		<package name="cv.orion" children="Particle"/>
+		<package name="cv.orion.edgefilters" children="BounceEdgeFilter,StopEdgeFilter,WrapEdgeFilter"/>
+		<package name="cv.orion.effects" children="DustEffect,ExplodeEffect,FireworkEffect,FountainEffect,RainEffect,SmokeEffect,SnowEffect"/>
+		<package name="cv.orion.emitters" children="BitmapEmitter,DisplayObjectEmitter,Emitter,MouseEmitter,RectangleEmitter"/>
+		<package name="cv.orion.events" children="ParticleEvent"/>
+		<package name="cv.orion.filters" children="Particle"/>
+		<package name="cv.orion.interfaces" children="IEdgeFilter,IFilter,IOutput,IRenderer"/>
+		<package name="cv.orion.output" children="BurstOutput,FunctionOutput,KeyDownOutput,SteadyOutput,TimedOutput"/>
+		<package name="cv.orion.renderers" children="BitmapRenderer,DisplayObjectRenderer,PixelRenderer"/>
+		<typeinfo pattern="*_rem" object="cv.orion.emitters.RectangleEmitter" />
+		<typeinfo pattern="*_mem" object="cv.orion.emitters.MouseEmitter" />
+		<typeinfo pattern="*_bem" object="cv.orion.emitters.BitmapEmitter" />
+		<typeinfo pattern="*_em" object="cv.orion.emitters.Emitter" />
+	</codehints>
+</customactions>
