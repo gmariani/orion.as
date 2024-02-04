@@ -28,6 +28,21 @@ OrionMouse is in essence a mouse trailer. It will emit particles wherever the mo
 
 All versions of Orion can use any of the output classes, filters or renderers. So the sky is really the limit of what you can achieve using Orion for your particle effects.
 
+## Explorer
+
+[View Explorer](/bin/OrionExplorer.swf)
+
+## Demos
+
+All source code for these demos is included with the download.
+
+- [Animation Demo](/bin/Demo.swf)
+- [Rocket Demo](/bin/Rocket.swf)
+- [Targets Test](/bin/TargetsTest.swf)
+- [Collision Test](/bin/Collision%20Test.swf)
+- [Tween Test](/bin/TweenTest.swf)
+- [Speed Test](/bin/Speedtest.swf)
+
 ## Flash / HTML (Canvas) Benchmark
 
 With the canvas being a bit more prevalent and wanting to learn more about this HTML5 thing I decided to port Orion (one of my favorite projects) into JavaScript. I was curious to see the perfomance difference between the Flash Player and the (currently) fastest browser Google Chrome.
@@ -90,6 +105,11 @@ This comparison is very similar to the Flash/Canvas comparison with a minor chan
 | Flash 10.1.53.64 Debugger | 2009 | 6,500         | 230                              |
 
 _* All results tested with a minimum FPS of 29_
+
+## Orion 2.0 Preview
+
+[Orion 1.0](/bin/SpeedTest_1.0.swf)
+[Orion 2.0](/bin/SpeedTest_2.0.swf)
 
 ## Usage
 
