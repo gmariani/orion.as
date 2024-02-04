@@ -36,12 +36,12 @@ All versions of Orion can use any of the output classes, filters or renderers. S
 
 All source code for these demos is included with the download.
 
-- [Animation Demo](/bin/Demo.swf)
-- [Rocket Demo](/bin/Rocket.swf)
-- [Targets Test](/bin/TargetsTest.swf)
-- [Collision Test](/bin/Collision%20Test.swf)
-- [Tween Test](/bin/TweenTest.swf)
-- [Speed Test](/bin/Speedtest.swf)
+-   [Animation Demo](/bin/Demo.swf)
+-   [Rocket Demo](/bin/Rocket.swf)
+-   [Targets Test](/bin/TargetsTest.swf)
+-   [Collision Test](/bin/Collision%20Test.swf)
+-   [Tween Test](/bin/TweenTest.swf)
+-   [Speed Test](/bin/Speedtest.swf)
 
 ## Flash / HTML (Canvas) Benchmark
 
@@ -76,7 +76,7 @@ Intel Core i7-4790K @ 4.00GHz
 ```
 
 | Browser                   | Year | Particles (P) | Particles Added Per Render (PPR) |
-|---------------------------|------|---------------|----------------------------------|
+| ------------------------- | ---- | ------------- | -------------------------------- |
 | Firefox 3.6.4             | 2009 | 14,000        | 600                              |
 | Chrome 6.0.427.0          | 2009 | 50,000        | 2,100                            |
 | Opera 10.60 Beta          | 2009 | 50,000        | 2,100                            |
@@ -87,24 +87,25 @@ Intel Core i7-4790K @ 4.00GHz
 | Flash 10.1.53.64 Debugger | 2009 | 225,000       | 9,500                            |
 | Flash 24.0.0.194          | 2017 | 1,025,000     | 42,100                           |
 
-_* All results tested with a minimum FPS of 29_
+_\* All results tested with a minimum FPS of 29_
 
 HTML (Canvas) Particle Speed Test | Flash (Bitmap) Particle Speed Test
 
 ## Flash / HTML (DOM) Benchmark
-This comparison is very similar to the Flash/Canvas comparison with a minor change. The first Flash demo utilizes BitmapData to render the particles. Much like Canvas renders directly to a bitmap array. But I wanted to compare the speed versus HTML (animating with elements) and a Bitmap demo isn't a fair comparison. So I have a second Flash demo that animated with Sprites. As with the previous demos, the particles are 1x1px white boxes to keep the look the same. Another small change in these demos is that they increment by 10s instead of 100s. This is because it's much more intensive to animate a sprite over a single pixel that really only exists when it's finally drawn on the bitmap. Also in an effort to let you see what the you can do with each, I've added controls to manipulate the minimum FPS. This will affect when the demos actually begin to throttle back.
-| Browser                   | Year | Particles (P) | Particles Added Per Render (PPR) |
-|---------------------------|------|---------------|----------------------------------|
-| Firefox 3.6.4             | 2009 | 400           | 20                               |
-| Chrome 6.0.437.1          | 2009 | 800           | 30                               |
-| Opera 10.60 Beta          | 2009 | 800           | 30                               |
-| Chrome 56.0.2924.87       | 2017 | 2,240         | 80                               |
-| Flash 10.0.45.2           | 2009 | 6,000         | 220                              |
-| Flash 10.0.45.2 Debugger  | 2009 | 5,000         | 180                              |
-| Flash 10.1.53.64          | 2009 | 7,500         | 270                              |
-| Flash 10.1.53.64 Debugger | 2009 | 6,500         | 230                              |
 
-_* All results tested with a minimum FPS of 29_
+This comparison is very similar to the Flash/Canvas comparison with a minor change. The first Flash demo utilizes BitmapData to render the particles. Much like Canvas renders directly to a bitmap array. But I wanted to compare the speed versus HTML (animating with elements) and a Bitmap demo isn't a fair comparison. So I have a second Flash demo that animated with Sprites. As with the previous demos, the particles are 1x1px white boxes to keep the look the same. Another small change in these demos is that they increment by 10s instead of 100s. This is because it's much more intensive to animate a sprite over a single pixel that really only exists when it's finally drawn on the bitmap. Also in an effort to let you see what the you can do with each, I've added controls to manipulate the minimum FPS. This will affect when the demos actually begin to throttle back.
+| Browser | Year | Particles (P) | Particles Added Per Render (PPR) |
+|---------------------------|------|---------------|----------------------------------|
+| Firefox 3.6.4 | 2009 | 400 | 20 |
+| Chrome 6.0.437.1 | 2009 | 800 | 30 |
+| Opera 10.60 Beta | 2009 | 800 | 30 |
+| Chrome 56.0.2924.87 | 2017 | 2,240 | 80 |
+| Flash 10.0.45.2 | 2009 | 6,000 | 220 |
+| Flash 10.0.45.2 Debugger | 2009 | 5,000 | 180 |
+| Flash 10.1.53.64 | 2009 | 7,500 | 270 |
+| Flash 10.1.53.64 Debugger | 2009 | 6,500 | 230 |
+
+_\* All results tested with a minimum FPS of 29_
 
 ## Orion 2.0 Preview
 
@@ -125,4 +126,5 @@ this.addChild(e);
 ```
 
 ## Documentation
-View ASDocs
+
+[View Orion 1.0 ASDocs](/doc/index.html)
