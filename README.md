@@ -89,8 +89,6 @@ Intel Core i7-4790K @ 4.00GHz
 
 _\* All results tested with a minimum FPS of 29_
 
-HTML (Canvas) Particle Speed Test | Flash (Bitmap) Particle Speed Test
-
 ## Flash / HTML (DOM) Benchmark
 
 This comparison is very similar to the Flash/Canvas comparison with a minor change. The first Flash demo utilizes BitmapData to render the particles. Much like Canvas renders directly to a bitmap array. But I wanted to compare the speed versus HTML (animating with elements) and a Bitmap demo isn't a fair comparison. So I have a second Flash demo that animated with Sprites. As with the previous demos, the particles are 1x1px white boxes to keep the look the same. Another small change in these demos is that they increment by 10s instead of 100s. This is because it's much more intensive to animate a sprite over a single pixel that really only exists when it's finally drawn on the bitmap. Also in an effort to let you see what the you can do with each, I've added controls to manipulate the minimum FPS. This will affect when the demos actually begin to throttle back.
