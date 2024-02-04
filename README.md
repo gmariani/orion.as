@@ -127,4 +127,4 @@ this.addChild(e);
 
 ## Documentation
 
-[View Orion 1.0 ASDocs](/doc/index.html)
+[View Orion 1.0 ASDocs](/doc/)
